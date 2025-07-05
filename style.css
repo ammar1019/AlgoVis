@@ -1,0 +1,237 @@
+#headerBar {
+    width: 100%;
+    height: 80px; /* taller for presence */
+    background-color: #1f2937; /* neutral dark gray */
+    color: white;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#headerBar h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Comic Sans MS', sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 90px; /* pushes content below the header */
+}
+
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 10px 18px;
+    margin: 6px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s, color 0.2s, border 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+button:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* === Action Buttons: Obstacle, Start, End === */
+.action-button.active {
+    background-color: #4f46e5; /* Indigo-600 */
+    color: #ffffff;
+    border-color: #4f46e5;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(79, 70, 229, 0.4);
+}
+
+/* === Grid and Cell Styling === */
+#gridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    max-width: fit-content;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+}
+
+.grid {
+    display: grid;
+   grid-template-columns: repeat(20, 18px); 
+    grid-template-rows: repeat(20, 18px);    
+    gap: 2px;
+    background-color: #e5e7eb;
+    padding: 2px;
+}
+
+.cell {
+    width: 18px;  /* was 24px */
+    height: 18px; /* was 24px */
+    background: #ffffff;
+    transition: background 0.2s;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background: #f5f5f5;
+}
+
+.cell.start {
+    background: #00FF00; /* green for start */
+}
+
+.cell.end {
+    background: #FF0000; /* red for end */
+}
+
+.cell.obstacle {
+    background: #000000; /* black for obstacle */
+}
+
+.cell.visited {
+    background: #007BFF; /* blue for visited */
+}
+
+.cell.path {
+    background: #FFD700; /* yellow for shortest path */
+}
+
+/* === Find Path Container and Path Length === */
+.find-path-container {
+    margin-top: 20px;
+}
+
+#pathLength {
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* === Toast Styling === */
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    position: fixed;
+    top: 30px;  
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    transition: visibility 0s, opacity 0.5s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* === Slider Styling === */
+.speed-controls-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background: #ffffff;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.speed-controls-inline span {
+    font-size: 0.95rem;
+}
+
+#speedSlider {
+    width: 120px;
+    accent-color: #000000;
+    cursor: pointer;
+}
+
+#footerBar {
+    width: 100%;
+    background-color: #1f2937;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    position: fixed;
+    bottom: 0;
+}
+
+#footerBar p {
+    margin: 0;
+}
+
+#footerBar .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#footerBar .social-icons img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;      /* ensures the image fits without distortion */
+    aspect-ratio: 1 / 1;      /* enforces square area even if SVG/PNG is not */
+    filter: invert(100%);
+    transition: transform 0.2s, filter 0.2s;
+    cursor: pointer;
+}
+
+
+#footerBar .social-icons img:hover {
+    transform: scale(1.15);
+    filter: invert(70%) sepia(20%) saturate(300%) hue-rotate(180deg);
+}

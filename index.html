@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlgoVis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/faviconIMG.png">
+
+</head>
+<body>
+    <div id="headerBar">
+    <h1>AlgoVis</h1>
+    </div>
+    
+
+    <div class="controls">
+        <button id="resetBtn">Reset Grid</button>
+    <button id="obstacleBtn" class="action-button">Add Obstacles ⬛</button>
+    <button id="startBtn" class="action-button">Add Starting Point 🟩</button>
+    <button id="endBtn" class="action-button">Add Destination 🟥</button>
+    <button id="mazeBtn">Generate Maze 🧩</button>
+
+        <div class="speed-controls-inline">
+            <span>Speed:</span>
+            <input type="range" id="speedSlider" min="10" max="145" value="90">
+        </div>
+    </div>
+
+    <div id="gridContainer">
+        <div id="grid" class="grid"></div>
+    </div>
+
+    <div class="find-path-container">
+        <button id="findPathBtn">🚀 Find Shortest Path</button>
+    </div>
+    <h2 id="pathLength">Path Length: N/A</h2>
+
+    <script src="script.js"></script>
+    <div id="toast" class="toast"></div>
+    <footer id="footerBar">
+    <p> </p>
+    <div class="social-icons">
+        <a href="https://github.com/ammar1019" target="_blank" aria-label="GitHub">
+            <img src="images/githubIcon.png" alt="GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/ammar-khan-9785aa352/" target="_blank" aria-label="LinkedIn">
+            <img src="images/linkedinIcon.png" alt="LinkedIn" />
+        </a>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
