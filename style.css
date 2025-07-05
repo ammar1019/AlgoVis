@@ -1,7 +1,7 @@
 #headerBar {
     width: 100%;
-    height: 80px; /* taller for presence */
-    background-color: #1f2937; /* neutral dark gray */
+    height: 80px; 
+    background-color: #1f2937; 
     color: white;
     padding: 0 24px;
     display: flex;
@@ -30,7 +30,7 @@ body {
     font-family: 'Comic Sans MS', sans-serif;
     text-align: center;
     min-height: 100vh;
-    padding-top: 90px; /* pushes content below the header */
+    padding-top: 90px; 
 }
 
 
@@ -105,8 +105,8 @@ button:active {
 }
 
 .cell {
-    width: 18px;  /* was 24px */
-    height: 18px; /* was 24px */
+    width: 18px;  
+    height: 18px; 
     background: #ffffff;
     transition: background 0.2s;
 }
@@ -223,8 +223,8 @@ button:active {
 #footerBar .social-icons img {
     width: 28px;
     height: 28px;
-    object-fit: contain;      /* ensures the image fits without distortion */
-    aspect-ratio: 1 / 1;      /* enforces square area even if SVG/PNG is not */
+    object-fit: contain;     
+    aspect-ratio: 1 / 1;     
     filter: invert(100%);
     transition: transform 0.2s, filter 0.2s;
     cursor: pointer;
