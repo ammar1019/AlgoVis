@@ -15,11 +15,12 @@ let animationSpeed = 50;
 let isVisualizing = false;
 let isLocked = false;
 
+
 let grid = [];
 let startCell = null;
 let endCell = null;
 
-// UTIL
+
 function showToast(message, duration = 3000) {
     const toast = document.getElementById("toast");
     toast.textContent = message;
@@ -31,7 +32,7 @@ function showToast(message, duration = 3000) {
     }, duration);
 }
 
-// CLEAR ACTIVE ACTION BUTTONS
+
 function clearActiveActionButtons() {
     obstacleBtn.classList.remove("active");
     startBtn.classList.remove("active");
@@ -39,7 +40,7 @@ function clearActiveActionButtons() {
     mode = "none";
 }
 
-// GRID CREATION
+
 function createGrid() {
     gridContainer.innerHTML = "";
     grid = [];
@@ -73,7 +74,7 @@ function createGrid() {
     }
 }
 
-// ACTION LOCK GUARD
+
 function canPerformAction(show = true) {
     if (isVisualizing) {
         if (show) requestAnimationFrame(() => showToast("⚠️ Please wait for visualization to finish."));
@@ -86,7 +87,6 @@ function canPerformAction(show = true) {
     return true;
 }
 
-// BUTTON STATE HANDLING
 function setMode(newMode, button) {
     if (!canPerformAction()) return;
     if (mode === newMode) {
@@ -99,7 +99,7 @@ function setMode(newMode, button) {
     }
 }
 
-// CELL CLICK HANDLING
+
 function handleCellClick(cellData) {
     if (!canPerformAction(false)) return;
 
@@ -234,7 +234,7 @@ speedSlider.addEventListener("input", () => {
     animationSpeed = 155 - parseInt(speedSlider.value);
 });
 
-// BUTTON EVENTS
+
 resetBtn.addEventListener("click", () => {
     if (isVisualizing) {
         showToast("⚠️ Please wait for visualization to finish.");
