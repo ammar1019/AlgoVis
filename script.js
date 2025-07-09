@@ -213,7 +213,7 @@ async function bfs() {
     isLocked = true;
 }
 
-// MAZE GENERATION
+
 function generateMaze() {
     if (!canPerformAction()) return;
     clearActiveActionButtons();
@@ -237,7 +237,7 @@ speedSlider.addEventListener("input", () => {
 
 resetBtn.addEventListener("click", () => {
     if (isVisualizing) {
-        showToast("⚠️ Please wait for visualization to finish.");
+        showToast("⚠️ Please wait for visualization to finish. ");
         return;
     }
     createGrid();
